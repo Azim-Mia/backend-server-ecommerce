@@ -16,6 +16,10 @@ const productSchema = new Schema({
     type:String,
     required:[true, "sku is required"],
   },
+  image:{
+    type:String,
+    default:null,
+  },
   description:{
     type:String,
   },

@@ -1,9 +1,9 @@
 import { Redis } from 'ioredis';
 import clearCard from "../servises/clearCard"
 const redis = new Redis({
-   port: 14702,
-   host: 'redis-14702.c232.us-east-1-2.ec2.redns.redis-cloud.com',
-password: 'hxEVPWvJIkIYl857JQgYlaUMhCR46b45',
+   port: 18239,
+   host: 'redis-18239.crce220.us-east-1-4.ec2.cloud.redislabs.com',
+password: 'FUUWA6JWHzU5jFL9GAekM2JR0wWfKsvg',
   username: "default",
   db: 0, // Defaults to 0
 });
