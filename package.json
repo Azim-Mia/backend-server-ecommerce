@@ -2,10 +2,10 @@
   "name": "e-commerce-mvc",
   "version": "1.0.0",
   "scripts": {
+   "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./index.ts",
     "build": "tsc && tsc-alias",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "vercel-start":"node index.ts"
+    "vercel":"nodemon index.ts"
   },
   "keywords": [],
   "author": "",
