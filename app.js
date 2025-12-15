@@ -26,6 +26,12 @@ app.use((0, cors_1.default)({
     methods: ["PUT", "POST", "GET", "UPDATE"],
     credentials: true,
 }));
+app.get('/', function (_req, res) {
+    res.status(200).json({
+        success: true,
+        message: 'health success'
+    });
+});
 app.use('/products', productRouter_1.default);
 app.use('/carts', cartRouter_1.default);
 app.use('/email', emailRouter_1.default);
@@ -37,12 +43,6 @@ app.use('/payment', paymentRouter_1.paymentRouter);
 app.use('/', searchRouter_1.default);
 app.use(function (req, res, next) {
     res.status(404).send("Not Found Route");
-});
-app.get('/backend-server-ecommerce', function (req, res) {
-    res.status(200).json({
-        success: true,
-        message: 'health success'
-    });
 });
 app.use(function (err, _req, res, _next) {
     console.error(err.stack);

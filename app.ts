@@ -26,6 +26,12 @@ app.use(cors({
 methods:["PUT","POST","GET","UPDATE"],
 credentials:true,
 }));
+app.get('/', (_req:Request, res:Response)=>{
+  res.status(200).json({
+    success:true,
+    message:'health success'
+  })
+})
 app.use('/products', productRouter);
 app.use('/carts', cartRouter);
 app.use('/email', emailRouter);
@@ -38,12 +44,6 @@ app.use('/', searchRouter);
 app.use((req:Request,res:Response,next:NextFunction)=>{
     res.status(404).send("Not Found Route");
 });
-app.get('/backend-server-ecommerce', (req:Request, res:Response)=>{
-  res.status(200).json({
-    success:true,
-    message:'health success'
-  })
-})
 app.use((err:any, _req:Request, res:Response, _next:NextFunction)=>{
   console.error(err.stack);
  res.status(500).json({success:false, message:"Internal Server Error"})
