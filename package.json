@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "scripts": {
-    "dev": "nodemon src/index.ts",
-    "build": "tsc && align && node dist/index.js",
-    "start": "node dist/index.js",
-    "build-vercel": "npm run build-vercel",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+  "start": "node dist/index.js",
+  "build": "tsc",
+  "build-vercel": "tsc" ,
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
