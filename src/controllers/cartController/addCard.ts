@@ -1,10 +1,10 @@
 import {Request, Response, NextFunction} from 'express';
 const { v4: uuidv4 } = require('uuid');
 import axios from 'axios';
-import redis from '../../../config/rdConfig';
+import redis from '../../config/rdConfig';
 import {addCardSchema} from './zodSchema';
-import {createCartSessionCookie} from "../../../servises/makeCookie"
-import { ttl  } from '../../../secret'
+import {createCartSessionCookie} from "../../servises/makeCookie"
+import { ttl  } from '../../secret'
 const addCard= async(req:Request, res:Response, _next:NextFunction)=>{
   try{
     const parseBody = addCardSchema.safeParse(req.body);

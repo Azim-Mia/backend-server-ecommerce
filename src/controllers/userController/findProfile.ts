@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken'; // <-- ঠিকভাবে import করা হলো
 import ProfileModel from '../../models/userModel/schemas';
-import { refresh_key } from '../../../secret';
+import { refresh_key } from '../../secret';
 
 interface MyJwtPayload extends jwt.JwtPayload {
   id: string;

@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import "cookie-parser";
-import { access_key, refresh_key } from "../../secret";
-import { generateAccessToken } from "../../servises/generateToken";
-import { createAccessCookie } from "../../servises/makeCookie";
+import { access_key, refresh_key } from "../secret";
+import { generateAccessToken } from "../servises/generateAccessToken";
+import { createAccessCookie } from "../servises/makeCookie";
 
 // Custom payload type
 interface MyJwtPayload extends JwtPayload {

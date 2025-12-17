@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import searchService from '../../../servises/searchService'
+import searchService from '../../servises/searchService'
 import { Product } from '../../models/productModel/schemas.js';
 const searchController =async(req:Request,res:Response,_next:NextFunction)=>{
   try{

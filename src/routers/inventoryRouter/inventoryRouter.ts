@@ -1,5 +1,5 @@
 import express from 'express';
-import { inventoryHealth,Create, Update, Finds, Delete, Find } from '../../../src/controllers/inventoryController';
+import { inventoryHealth,Create, Update, Finds, Delete, Find } from '../../controllers/inventoryController';
 const inventoryRouter = express.Router();
 inventoryRouter.get('/',inventoryHealth);
 inventoryRouter.post('/create',Create as any);

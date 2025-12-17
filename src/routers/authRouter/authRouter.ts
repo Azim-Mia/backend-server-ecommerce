@@ -1,5 +1,5 @@
 import express from 'express';
-import {registerUser,findAllUser,findSingleUser,loginUser,verifyEmail,verifyUser, sendCode, QuaryId,forgetPassword,forgetPasswordVerify, logout} from '../../../src/controllers/authController';
+import {registerUser,findAllUser,findSingleUser,loginUser,verifyEmail,verifyUser, sendCode, QuaryId,forgetPassword,forgetPasswordVerify, logout} from '../../controllers/authController';
 const authRouter = express.Router();
 authRouter.post('/users/register',registerUser as any);
 authRouter.get('/users/finds',findAllUser as any);

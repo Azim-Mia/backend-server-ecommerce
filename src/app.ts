@@ -4,16 +4,16 @@ const cookieParser = require('cookie-parser')
 
 import cors from 'cors';
 import morgan from 'morgan';
-import productRouter from './src/routers/productRouter/productRouter'
-import cartRouter from './src/routers/cartRouter/cartRouter'
-import emailRouter from './src/routers/emailRouter/emailRouter'
-import inventoryRouter from './src/routers/inventoryRouter/inventoryRouter'
+import productRouter from './routers/productRouter/productRouter'
+import cartRouter from './routers/cartRouter/cartRouter'
+import emailRouter from './routers/emailRouter/emailRouter'
+import inventoryRouter from './routers/inventoryRouter/inventoryRouter'
 
-import userRouter from './src/routers/userRouter/userRouter'
-import authRouter from './src/routers/authRouter/authRouter'
-import orderRouter from './src/routers/orderRouter/orderRouter'
-import {paymentRouter} from './src/routers/paymentRouter/paymentRouter';
-import searchRouter from './src/routers/searchRouter/searchRouter'
+import userRouter from './routers/userRouter/userRouter'
+import authRouter from './routers/authRouter/authRouter'
+import orderRouter from './routers/orderRouter/orderRouter'
+import {paymentRouter} from './routers/paymentRouter/paymentRouter';
+import searchRouter from './routers/searchRouter/searchRouter'
 import './events/sessionStore'
  const app =express();
  app.use(cookieParser())

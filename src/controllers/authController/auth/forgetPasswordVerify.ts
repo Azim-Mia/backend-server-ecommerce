@@ -2,7 +2,7 @@ import {Request, Response,NextFunction} from 'express';
 import jwt from 'jsonwebtoken';
 //import axios from 'axios';
 require('dotenv').config();
-import {access_key} from '../../../../secret';
+import {access_key} from '../../../secret';
 import { AuthUserSchema } from '../../../models/authModel/schemas';
 //const user_port = process.env.USER_SERVER || "http://localhost:4003";
  const forgetPasswordVerify =async(req:Request,res:Response, _next:NextFunction)=>{

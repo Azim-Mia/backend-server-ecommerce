@@ -1,4 +1,4 @@
-const bcrypt=require('bcryptjs');
+import * as bcrypt from "bcryptjs";
 const { Schema, model } =require('mongoose');
 const authUserSchema= new Schema({
   authUserId:{

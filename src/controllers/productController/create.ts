@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import { Product } from '../../models/productModel/schemas.js';
+import { Product } from '../../models/productModel/schemas';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 const Create= async(req:Request,res:Response,_next:NextFunction)=>{

@@ -2,9 +2,9 @@ import {Request, Response,NextFunction} from 'express';
 import axios from 'axios';
 require('dotenv').config();
 import  emailInfo from  '../../../lib/forgetPasswordEmailInfo'
-import {access_key} from '../../../../secret';
-import {generateAccessToken} from '../../../../servises/generateToken'
-import {createAccessCookie} from '../../../../servises/makeCookie'
+import {access_key} from '../../../secret';
+import {generateAccessToken} from '../../../servises/generateAccessToken'
+import {createAccessCookie} from '../../../servises/makeCookie'
 import { AuthUserSchema } from '../../../models/authModel/schemas';
  const forgetPassword =async(req:Request,res:Response, _next:NextFunction)=>{
 try{

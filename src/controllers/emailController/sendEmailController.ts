@@ -1,6 +1,6 @@
 import {Request, Response, NextFunction} from 'express'
 import {EmailSchemas}  from '../../models/emailModel/schemas';
-import emailWithNodeMailer from '../../../servises/sendEmail';
+import emailWithNodeMailer from '../../servises/sendEmail';
 const sendEmailController = async(req:Request, res:Response, _next:NextFunction)=>{
   try{
     const emailData = {...req.body};

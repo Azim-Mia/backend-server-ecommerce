@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import axios from 'axios';
-import redis from '../../../config/rdConfig';
+import redis from '../../config/rdConfig';
 
 const removeSingleItem = async (req: Request, res: Response, _next: NextFunction) => {
   const sessionId = req.headers['x-card-session-id'] as string;

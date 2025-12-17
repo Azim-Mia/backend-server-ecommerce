@@ -36,29 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var ioredis_1 = require("ioredis");
-var clearCard_1 = require("../servises/clearCard");
-var redis = new ioredis_1.Redis({
-    port: 18239,
-    host: 'redis-18239.crce220.us-east-1-4.ec2.cloud.redislabs.com',
-    password: 'FUUWA6JWHzU5jFL9GAekM2JR0wWfKsvg',
-    username: "default",
-    db: 0, // Defaults to 0
-});
-var CHENAL_KEY = '__keyevent@0__:expired';
-redis.config('SET', 'notify-keyspace-events', 'Ex');
-redis.subscribe(CHENAL_KEY);
-redis.on('message', function (ch, message) { return __awaiter(void 0, void 0, void 0, function () {
-    var cardKey;
+var mongoose_1 = require("mongoose");
+var secret_1 = require("../secret");
+var connectDB = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var err_1;
     return __generator(this, function (_a) {
-        if (ch == CHENAL_KEY) {
-            console.log('expired key : ' + message);
-            cardKey = message.split(":").pop();
-            if (!cardKey)
-                return [2 /*return*/];
-            (0, clearCard_1.default)(cardKey);
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, mongoose_1.default.connect(secret_1.db_url)];
+            case 1:
+                _a.sent();
+                console.log("E-commerce-mvc connection successfull");
+                return [3 /*break*/, 3];
+            case 2:
+                err_1 = _a.sent();
+                console.log(err_1.message);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
-        return [2 /*return*/];
     });
-}); });
-/*this file use root file app */ 
+}); };
+exports.default = connectDB;

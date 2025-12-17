@@ -3,7 +3,7 @@ import axios from 'axios';
 import {z} from 'zod';
 const { v4: uuidv4 } = require('uuid');
 import {OrderDetailModel,OrderItemModel} from '../../models/orderModel/schemas';
-import {orderSchema, orderItemsSchema} from '../../../validatesSchema/parseBodyValidate'
+import {orderSchema, orderItemsSchema} from '../../validatesSchema/parseBodyValidate'
 const checkOut= async(req:Request, res:Response, next:NextFunction)=>{
   //decliar variable
   let cardData, cardItemsData;

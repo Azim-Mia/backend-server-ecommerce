@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import redis from '../../../config/rdConfig';
+import redis from '../../config/rdConfig';
 //import {addCardSchema} from './zodSchema';
 //import { ttl  } from '../envVariable/secret';
 import axios from 'axios';

@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import { Product } from '../../models/productModel/schemas.js';
+import { Product } from '../../models/productModel/schemas';
 const Finds = async(_req:Request,res:Response,_next:NextFunction)=>{
 try{
   const findProduct = await Product.find().select("name _id productId inventoryId price quantity");

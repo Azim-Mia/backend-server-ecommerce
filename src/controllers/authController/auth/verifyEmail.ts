@@ -2,9 +2,10 @@ import {Request, Response,NextFunction} from 'express';
 import {z} from 'zod';
 import axios from 'axios'
 import { AuthUserSchema,VerifiedCodeSchema } from '../../../models/authModel/schemas';
-import {access_key,refresh_key} from '../../../../secret';
-import {generateAccessToken,generateRefreshToken} from '../../../../servises/generateToken'
-import {createAccessCookie,createRefreshCookie} from '../../../../servises/makeCookie'
+import {access_key,refresh_key} from '../../../secret';
+import {generateAccessToken} from '../../../servises/generateAccessToken'
+import {generateRefreshToken} from '../../../servises/generateRefreshToken'
+import {createAccessCookie,createRefreshCookie} from '../../../servises/makeCookie'
 const dataVlidation = z.object({
   code:z.string(),
   email:z.string().email(),

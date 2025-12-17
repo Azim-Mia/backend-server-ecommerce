@@ -1,7 +1,5 @@
 import nodemailer from 'nodemailer';
-import {smtpUser,smtpPassword} from '../secret.js'
-const smtpUser =process.env.SMTP_USERNAME;
-const smtpPassword= process.env.SMTP_PASSWORD;
+import {smtpUser,smtpPassword} from '../secret.ts'
 console.log(smtpPassword + "smtpPassword not find")
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',

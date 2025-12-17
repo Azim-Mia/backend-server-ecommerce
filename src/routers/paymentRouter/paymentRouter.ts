@@ -1,5 +1,5 @@
 import express from 'express';
-import {paymentController, paymentSuccessController, failPayment, cancelPayment,createPayment,findPayment,deletePayment} from '../../../src/controllers/paymentController';
+import {paymentController, paymentSuccessController, failPayment, cancelPayment,createPayment,findPayment,deletePayment} from '../../controllers/paymentController';
 export const paymentRouter = express.Router();
 paymentRouter.post('/', paymentController as any);
 paymentRouter.post('/success/:tran_id',paymentSuccessController as any);

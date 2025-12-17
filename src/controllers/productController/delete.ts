@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import { Product } from '../../models/productModel/schemas.js';
+import { Product } from '../../models/productModel/schemas';
 const Delete = async(req:Request,res:Response, _next:NextFunction)=>{
 const productId = req.body.productId;
 const deleteId = await Product.deleteOne({productId:productId});

@@ -1,5 +1,5 @@
 import express from 'express';
-import { emailHealth,sendEmailController,findEmailController} from '../../../src/controllers/emailController';
+import { emailHealth,sendEmailController,findEmailController} from '../../controllers/emailController';
 const emailRouter = express.Router();
 emailRouter.get('/',emailHealth);
 emailRouter.post('/send', sendEmailController as any);

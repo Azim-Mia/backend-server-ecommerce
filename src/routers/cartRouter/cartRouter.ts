@@ -1,5 +1,5 @@
 import express from 'express';
-import { cartHealth,addCard,finalyCleanCard, myCard,removeSingleItem,viewCarts} from '../../../src/controllers/cartController';
+import { cartHealth,addCard,finalyCleanCard, myCard,removeSingleItem,viewCarts} from '../../controllers/cartController';
 const productRouter = express.Router();
 productRouter.get('/',cartHealth as any);
 productRouter.post('/add-to-cart',addCard as any);

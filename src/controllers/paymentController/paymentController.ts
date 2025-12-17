@@ -7,7 +7,7 @@ const SSLCommerzPayment = require('sslcommerz-lts')
 const store_id = process.env.STORE_ID;
 const store_passwd = process.env.STORE_PASSWORD;
 const is_live = false //true for live, false for sandbox
-import {refresh_key} from '../../../secret';
+import {refresh_key} from '../../secret';
 const paymentController=async(req:Request,res:Response, _next:NextFunction)=>{
   const {cardSessionId,address,post_code,phone,name} = req.body;
   console.log(cardSessionId,address,name,post_code,phone)

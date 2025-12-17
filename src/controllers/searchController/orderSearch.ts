@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import searchService from '../../../servises/searchService'
+import searchService from '../../servises/searchService'
 import {OrderDetailModel} from '../../models/orderModel/schemas'
 const orderSearch =async(req:Request,res:Response,_next:NextFunction)=>{
   try{

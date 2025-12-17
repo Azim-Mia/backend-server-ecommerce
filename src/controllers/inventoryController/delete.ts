@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express'
-import {Inventory} from '../../models/inventoryModel/schemas.js';
+import {Inventory} from '../../models/inventoryModel/schemas';
 const Delete = async(req:Request,res:Response, _next:NextFunction)=>{
   try{
   const {id} = req.params;

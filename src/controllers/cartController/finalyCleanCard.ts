@@ -1,4 +1,4 @@
-import redis from '../../../config/rdConfig';
+import redis from '../../config/rdConfig';
 import {Request, Response, NextFunction} from 'express';
 const finalyCleanCard= async(req:Request, res:Response, _next:NextFunction)=>{
   try{

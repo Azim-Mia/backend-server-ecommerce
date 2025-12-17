@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express'
-import {Inventory,History} from '../../models/inventoryModel/schemas.js';
+import {Inventory,History} from '../../models/inventoryModel/schemas';
 const Update =async(req:Request,res:Response,_next:NextFunction)=>{
   try{
     const {id} = req.params;

@@ -1,5 +1,5 @@
 import {Request, Response, NextFunction} from 'express';
-import { Product } from '../../models/productModel/schemas.js';
+import { Product } from '../../models/productModel/schemas';
 import axios  from 'axios';
 const find = async(req:Request,res:Response,_next:NextFunction)=>{
 try{

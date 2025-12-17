@@ -1,5 +1,5 @@
 import * as express from "express";
-import { orderHealth, checkOut,findOrderAll,ordersFindUser} from '../../../src/controllers/orderController';
+import { orderHealth, checkOut,findOrderAll,ordersFindUser} from '../../controllers/orderController';
 import { isLoggedIn } from "../../../src/middlewares/isLoggedIn";
 const orderRouter = express.Router();
 orderRouter.get('/',orderHealth);

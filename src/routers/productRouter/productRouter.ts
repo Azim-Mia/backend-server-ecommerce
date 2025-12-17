@@ -1,5 +1,5 @@
 import express from 'express';
-import { Health, Create, Finds, Find, Delete } from '../../../src/controllers/productController';
+import { Health, Create, Finds, Find, Delete } from '../../controllers/productController';
 const productRouter = express.Router();
 productRouter.get('/',Health as any);
 productRouter.post('/create',Create as any);
