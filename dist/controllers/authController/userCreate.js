@@ -18,7 +18,6 @@ const userData = zod_1.z.object({
     image: zod_1.z.string().optional(),
 });
 const registerUser = async (req, res, _next) => {
-    var _a, _b;
     try {
         // decliyar variablea
         const bodyParse = userData.safeParse({ authUserId: uuidv4(), ...req.body });
@@ -27,7 +26,7 @@ const registerUser = async (req, res, _next) => {
             return;
         }
         ;
-        const emailMatch = (_a = bodyParse === null || bodyParse === void 0 ? void 0 : bodyParse.data) === null || _a === void 0 ? void 0 : _a.email;
+        const emailMatch = bodyParse?.data?.email;
         const exits = await schemas_1.AuthUserSchema.findOne({ email: emailMatch });
         if (exits) {
             return res.status(400).json({ success: false, message: "User already registred" });
@@ -42,7 +41,7 @@ const registerUser = async (req, res, _next) => {
         ;
         //create Verify Token
         const { authUserId, name, email, verified, role } = userAdd;
-        const tokenData = { authUserId: authUserId, name: name, email: email, password: (_b = bodyParse.data) === null || _b === void 0 ? void 0 : _b.password, verified: verified, role: role };
+        const tokenData = { authUserId: authUserId, name: name, email: email, password: bodyParse.data?.password, verified: verified, role: role };
         const token = await jsonwebtoken_1.default.sign(tokenData, 'azim', { expiresIn: '1h' });
         const emailData = {
             recipient: req.body.email,

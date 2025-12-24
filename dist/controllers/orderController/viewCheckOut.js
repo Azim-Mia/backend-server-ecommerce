@@ -19,10 +19,10 @@ const view = async (req, res, next) => {
         if (!data.items)
             return;
         //all data store
-        cardData = data === null || data === void 0 ? void 0 : data.items;
+        cardData = data?.items;
         //create array orderItemsSchema data ;
         //check data empty
-        if ((cardData === null || cardData === void 0 ? void 0 : cardData.length) == 0) {
+        if (cardData?.length == 0) {
             return res.status(400).json({ success: false, message: "cardItems is empty" });
         }
         ;

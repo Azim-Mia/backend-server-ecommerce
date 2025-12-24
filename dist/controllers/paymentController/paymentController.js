@@ -52,8 +52,8 @@ const paymentController = async (req, res, _next) => {
         product_name: 'any',
         product_category: 'Electronic',
         product_profile: 'general',
-        cus_name: (user === null || user === void 0 ? void 0 : user.name) || 'yyy',
-        cus_email: (user === null || user === void 0 ? void 0 : user.email) || 'customer@example.com',
+        cus_name: user?.name || 'yyy',
+        cus_email: user?.email || 'customer@example.com',
         cus_add1: address || 'mm',
         cus_add2: address || 'mmm',
         cus_city: 'Dhaka',
@@ -83,7 +83,7 @@ const paymentController = async (req, res, _next) => {
         //create order details 
         const info = {
             cardSessionId: cardSessionId,
-            userId: user === null || user === void 0 ? void 0 : user.id,
+            userId: user?.id,
             tran_id: data.tran_id,
             name: name,
             email: user.email,

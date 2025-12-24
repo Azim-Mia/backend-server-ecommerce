@@ -16,7 +16,7 @@ const updateUser = async (req, res, _next) => {
     res.status(201).json({
         success: true,
         message: "user create successfull",
-        result: users === null || users === void 0 ? void 0 : users.data,
+        result: users?.data,
     });
 };
 exports.default = updateUser;

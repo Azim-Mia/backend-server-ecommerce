@@ -15,12 +15,11 @@ const dataVlidation = zod_1.z.object({
     email: zod_1.z.string().email(),
 });
 const verifyEmail = async (req, res, _next) => {
-    var _a, _b, _c, _d;
     try {
         const bodyParse = dataVlidation.safeParse(req.body);
         const userEmail = req.headers['Email'];
-        const exists = await schemas_1.VerifiedCodeSchema.findOne({ email: ((_a = bodyParse === null || bodyParse === void 0 ? void 0 : bodyParse.data) === null || _a === void 0 ? void 0 : _a.email) || userEmail });
-        const user = await schemas_1.AuthUserSchema.findOne({ email: ((_b = bodyParse === null || bodyParse === void 0 ? void 0 : bodyParse.data) === null || _b === void 0 ? void 0 : _b.email) || userEmail });
+        const exists = await schemas_1.VerifiedCodeSchema.findOne({ email: bodyParse?.data?.email || userEmail });
+        const user = await schemas_1.AuthUserSchema.findOne({ email: bodyParse?.data?.email || userEmail });
         console.log(exists);
         if (!exists && !user) {
             return res.status(200).json({ success: false, messages: "Not Found User" });
@@ -29,10 +28,10 @@ const verifyEmail = async (req, res, _next) => {
         if (exists.status === "USED") {
             return res.status(200).json({ success: false, messages: "Verify Code is used" });
         }
-        if (exists.code !== ((_c = bodyParse === null || bodyParse === void 0 ? void 0 : bodyParse.data) === null || _c === void 0 ? void 0 : _c.code)) {
+        if (exists.code !== bodyParse?.data?.code) {
             return res.status(200).json({ success: false, messages: "Verify Code is not Match" });
         }
-        const existAuthUser = await schemas_1.AuthUserSchema.findOne({ email: ((_d = bodyParse === null || bodyParse === void 0 ? void 0 : bodyParse.data) === null || _d === void 0 ? void 0 : _d.email) || userEmail });
+        const existAuthUser = await schemas_1.AuthUserSchema.findOne({ email: bodyParse?.data?.email || userEmail });
         if (!existAuthUser) {
             return res.status(200).json({ success: false, messages: "AuthUserSchema Not Found" });
         }

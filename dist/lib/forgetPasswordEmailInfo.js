@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgetPasswordEmailInfo = (info) => {
     const emailData = {
-        recipient: (info === null || info === void 0 ? void 0 : info.email) || '',
+        recipient: info?.email || '',
         subject: "Forget password",
         body: `<h2>Hello, User</h2>
   <div>Verify your email</div><div><button><a href="${info.url}/auth/new_password/:${info.token}" target="_blank ">New Password setup</a></button></div>

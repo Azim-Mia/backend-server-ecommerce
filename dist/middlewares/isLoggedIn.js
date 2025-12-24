@@ -10,10 +10,9 @@ const secret_1 = require("../secret");
 const generateAccessToken_1 = require("../servises/generateAccessToken");
 const makeCookie_1 = require("../servises/makeCookie");
 const isLoggedIn = async (req, res, next) => {
-    var _a, _b;
     try {
-        const refreshToken = (_a = req.cookies) === null || _a === void 0 ? void 0 : _a.refreshToken;
-        const accessToken = (_b = req.cookies) === null || _b === void 0 ? void 0 : _b.accessToken;
+        const refreshToken = req.cookies?.refreshToken;
+        const accessToken = req.cookies?.accessToken;
         console.log("accessToken isLoggedIn Middleware " + accessToken, refreshToken);
         // ✅ যদি access token থাকে
         if (accessToken) {
@@ -41,7 +40,7 @@ const isLoggedIn = async (req, res, next) => {
         catch (err) {
             return res.json({ success: false, message: "Invalid refresh token" });
         }
-        if (!(decoded === null || decoded === void 0 ? void 0 : decoded.id) || !(decoded === null || decoded === void 0 ? void 0 : decoded.email)) {
+        if (!decoded?.id || !decoded?.email) {
             return res.json({ success: false, message: "Invalid token payload" });
         }
         // ✅ response header এ email সেট করা

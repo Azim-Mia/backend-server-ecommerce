@@ -48,7 +48,6 @@ const generateAccessToken_1 = require("../../servises/generateAccessToken");
 const generateRefreshToken_1 = require("../../servises/generateRefreshToken");
 const makeCookie_1 = require("../../servises/makeCookie");
 const loginUser = async (req, res, next) => {
-    var _a;
     try {
         console.log('login process1');
         const userData = zod_1.z.object({
@@ -62,7 +61,7 @@ const loginUser = async (req, res, next) => {
             return res.status(404).json({ error: parseBody.error.errors });
         }
         ;
-        const user = await schemas_1.AuthUserSchema.findOne({ email: (_a = parseBody === null || parseBody === void 0 ? void 0 : parseBody.data) === null || _a === void 0 ? void 0 : _a.email });
+        const user = await schemas_1.AuthUserSchema.findOne({ email: parseBody?.data?.email });
         if (!user) {
             return res.status(404).json({ success: false, message: "Email not match", isLoggedIn: false });
         }
@@ -73,24 +72,24 @@ const loginUser = async (req, res, next) => {
         console.log('login process2', isMatchPassword);
         if (!isMatchPassword) {
             //history create 
-            await (0, loghistory_1.loghistory)({ userId: (user === null || user === void 0 ? void 0 : user.authUserId) || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: 'password is not match' });
+            await (0, loghistory_1.loghistory)({ userId: user?.authUserId || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: 'password is not match' });
             return res.status(404).json({ success: false, message: "Password not match", isLoggedIn: false });
         }
         ;
         //check verified user
         if (!user.verified) {
-            await (0, loghistory_1.loghistory)({ userId: (user === null || user === void 0 ? void 0 : user.authUserId) || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: 'user not verified' });
+            await (0, loghistory_1.loghistory)({ userId: user?.authUserId || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: 'user not verified' });
             // history create
             return res.status(404).json({ success: false, message: "user is not verified", isLoggedIn: false });
         }
         ;
         //check login status user
         if (user.status !== 'ACTIVE') {
-            await (0, loghistory_1.loghistory)({ userId: (user === null || user === void 0 ? void 0 : user.authUserId) || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: "user not active" });
+            await (0, loghistory_1.loghistory)({ userId: user?.authUserId || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "FAILED", description: "user not active" });
             return res.status(404).json({ success: false, message: `user not :${user.status},`, isLoggedIn: false });
         }
         ;
-        (0, loghistory_1.loghistory)({ userId: (user === null || user === void 0 ? void 0 : user.authUserId) || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "SUCCESS", description: "Successfull login" });
+        (0, loghistory_1.loghistory)({ userId: user?.authUserId || "", ipAddress: ipAddress, userAgent: userAgent, attempt: "SUCCESS", description: "Successfull login" });
         //create authurazed
         const accessToken = await (0, generateAccessToken_1.generateAccessToken)({ id: user.authUserId, email: user.email, isLoggedIn: true }, secret_1.access_key, '5m');
         const refresh_token = await (0, generateRefreshToken_1.generateRefreshToken)({ id: user.authUserId, email: user.email }, secret_1.refresh_key, '1080m');

@@ -7,9 +7,8 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const schemas_1 = require("../../models/orderModel/schemas");
 const secret_1 = require("../../../secret");
 const ordersFindUser = async (req, res, _next) => {
-    var _a;
     try {
-        const refreshToken = (_a = req.cookies) === null || _a === void 0 ? void 0 : _a.refreshToken;
+        const refreshToken = req.cookies?.refreshToken;
         if (!refreshToken) {
             return res.status(401).json({
                 success: false,

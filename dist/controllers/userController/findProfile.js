@@ -40,10 +40,9 @@ const jwt = __importStar(require("jsonwebtoken")); // <-- ঠিকভাবে 
 const schemas_1 = __importDefault(require("../../models/userModel/schemas"));
 const secret_1 = require("../../secret");
 const findProfile = async (req, res, _next) => {
-    var _a;
     try {
         console.log("BBBBBBBBBBBB");
-        const refreshToken = (_a = req.cookies) === null || _a === void 0 ? void 0 : _a.refreshToken;
+        const refreshToken = req.cookies?.refreshToken;
         if (!refreshToken) {
             return res.status(401).json({
                 success: false,

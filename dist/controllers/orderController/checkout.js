@@ -9,7 +9,6 @@ const { v4: uuidv4 } = require('uuid');
 const schemas_1 = require("../../models/orderModel/schemas");
 const parseBodyValidate_1 = require("../../validatesSchema/parseBodyValidate");
 const checkOut = async (req, res, next) => {
-    var _a;
     //decliar variable
     let cardData, cardItemsData;
     //body data validate 
@@ -27,16 +26,16 @@ const checkOut = async (req, res, next) => {
             },
         });
         //all data store
-        cardData = data === null || data === void 0 ? void 0 : data.items;
+        cardData = data?.items;
         //create array orderItemsSchema data ;
         const cardItems = zod_1.z.array(parseBodyValidate_1.orderItemsSchema).safeParse(cardData);
         //check data empty
-        if (((_a = cardItems.data) === null || _a === void 0 ? void 0 : _a.length) == 0) {
+        if (cardItems.data?.length == 0) {
             return res.status(400).json({ success: false, message: "cardItems is empty" });
         }
         ;
         //asign value  cardItemsData
-        cardItemsData = cardItems === null || cardItems === void 0 ? void 0 : cardItems.data;
+        cardItemsData = cardItems?.data;
         if (!cardItemsData)
             return;
         //create array promise 

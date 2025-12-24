@@ -10,7 +10,6 @@ const secret_1 = require("../../../secret");
 const schemas_1 = require("../../../models/authModel/schemas");
 //const user_port = process.env.USER_SERVER || "http://localhost:4003";
 const forgetPasswordVerify = async (req, res, _next) => {
-    var _a;
     try {
         const { token } = req.params;
         const { password } = req.body;
@@ -40,7 +39,7 @@ const forgetPasswordVerify = async (req, res, _next) => {
         return res.status(201).json({ success: true, message: "successfull verify" });
     }
     catch (error) {
-        const errData = ((_a = error === null || error === void 0 ? void 0 : error.errorResponse) === null || _a === void 0 ? void 0 : _a.errmsg) || error;
+        const errData = error?.errorResponse?.errmsg || error;
         console.log(error);
         return res.status(500).json({ success: false, message: "Intrnel server Error", Error: errData });
     }
