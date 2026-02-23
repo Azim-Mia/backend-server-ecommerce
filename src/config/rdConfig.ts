@@ -1,8 +1,8 @@
 import { Redis } from 'ioredis';
 const redis = new Redis({
-    port: 18239,
-   host: 'redis-18239.crce220.us-east-1-4.ec2.cloud.redislabs.com',
-password: 'FUUWA6JWHzU5jFL9GAekM2JR0wWfKsvg',
+    port: 18220,
+   host: 'redis-18220.c9.us-east-1-2.ec2.cloud.redislabs.com',
+password: '7CWoSoDChpau6AadRInAt23iSzA1IDdo',
   username: "default",
   db: 0, // Defaults to 0
 });
