@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import {db_url} from '../secret';
+ const db_url = process.env.DB_URL;
 const connectDB=async()=>{
   try{
     await mongoose.connect(db_url as string);
